@@ -18,7 +18,7 @@ Solved
 
 Solved.
 
-5.Refactor code so it can be testable.
+5.Write tests.
 
 
 
