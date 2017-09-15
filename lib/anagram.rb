@@ -1,9 +1,17 @@
 class Anagram
 	@result=[]
   def self.getAnagrams(h={})
-    h.each do |key,value|
-      @result<<value.group_by {|elem| elem.downcase.chars.sort}.delete_if{|key,value| value.length==1}.values
+  	unless @result.empty?
+      @result=[]
     end
+    
+      h.each do |key,value|
+        res=value.group_by{|elem| elem.downcase.chars.sort}.delete_if{|key,value| value.length==1}.values
+        res.each do |val|
+      	  @result<<val
+        end
+      end
+    
     @result
   end
   
