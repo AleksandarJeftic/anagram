@@ -1,22 +1,22 @@
-beginning_time = Time.now
-h={1 => []}
-File.open("wordlist.txt","r:iso-8859-1:utf-8").readlines.map(&:strip).each do |line|
-  if h.has_key? line.length
-  	h[line.length].push(line)
-  else 
-  	h[line.length]=[line]
-  end
-end
+require_relative "lib/anagram"
 
-h.each do |key,value|
-  result=value.group_by {|elem| elem.downcase.chars.sort}.delete_if{|key,value| value.length==1}.values
-    result.each do |item|
-      item.each{|it| print it + " "}
-      puts 
-    end
+beginning_time = Time.now
+
+ha=Anagram.getHash
+
+result=Anagram.getAnagrams(ha)
+
+result.each do |item|
+  item.each do |it|
+    puts 
+      it.each do |i|
+      print i.to_s + " "
+      end
+  end       
 end
 end_time = Time.now
-puts
 
+puts 
+puts 
 puts "Processed 338882 words."
 puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
