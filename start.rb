@@ -1,3 +1,4 @@
+beginning_time = Time.now
 h={1 => []}
 File.open("wordlist.txt","r:iso-8859-1:utf-8").readlines.map(&:strip).each do |line|
   if h.has_key? line.length
@@ -14,3 +15,8 @@ h.each do |key,value|
       puts 
     end
 end
+end_time = Time.now
+puts
+
+puts "Processed 338882 words."
+puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"
