@@ -12,6 +12,13 @@ Solved.
 
 3.Figure out fastest way to compare words for anagram hits inside corresponding array.
 
-
+Solved
 
 4.Find a way to output grouped anagrams.
+
+Solved.
+
+5.Refactor code so it can be testable.
+
+
+
