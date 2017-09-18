@@ -10,12 +10,12 @@ describe Anagram do
       end
     end
 
-  	context " when other hash is given" do 
-  	ha={5 => ["basfa","sabaf","dff"], 2=>["ba","Ab","da"]}
-  	  it "returns different anagrams" do
-  	  	expect(Anagram.new("fileName").getAnagrams(ha)).to eql([["basfa", "sabaf"], ["ba","Ab"]])
-  	  end
-  	end
+    context " when other hash is given" do 
+    ha={5 => ["basfa","sabaf","dff"], 2=>["ba","Ab","da"]}
+      it "returns different anagrams" do
+        expect(Anagram.new("fileName").getAnagrams(ha)).to eql([["basfa", "sabaf"], ["ba","Ab"]])
+      end
+    end
 
   end
 end
