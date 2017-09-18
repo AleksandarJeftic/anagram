@@ -1,14 +1,15 @@
 require_relative "lib/anagram"
 
 beginning_time = Time.now
+fileName="wordlist.txt"
+anagramFinder=Anagram.new(fileName)
+sortedHash=anagramFinder.getHash
+result=anagramFinder.getAnagrams(sortedHash)
 
-ha=Anagram.getHash
-result=Anagram.getAnagrams(ha)
 result.each do |item|
   item.each{|i| print i+" "}
   puts
 end
-
 end_time = Time.now
 
 puts 
