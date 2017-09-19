@@ -1,17 +1,15 @@
 require_relative "lib/anagram"
 
 beginning_time = Time.now
-fileName="wordlist.txt"
-anagramFinder=Anagram.new(fileName)
-sortedHash=anagramFinder.getHash
-result=anagramFinder.getAnagrams(sortedHash)
+filename="wordlist.txt"
+testarray=["gfd","gdf","Gdd","ddg"]
+anagramFinder=Anagram.new(filename)
 
-result.each do |item|
+anagramFinder.result.each do |item|
   item.each{|i| print i+" "}
   puts
 end
 end_time = Time.now
 
 puts 
-puts "Processed 338882 words."
 puts "Time elapsed #{(end_time - beginning_time)*1000} milliseconds"

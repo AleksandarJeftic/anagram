@@ -1,22 +1,20 @@
 require "anagram"
 
 describe Anagram do 
-  describe "getAnagrams" do
-    
-    context " when hash is given" do 
-    h={3 => ["bas","sab","dff"], 1=>["a","A","g"]}
+
+    context " when filename is given" do 
       it "returns anagrams of given hash" do
-        expect(Anagram.new("fileName").getAnagrams(h)).to eql([["bas", "sab"],["a","A"]])
+        expect(Anagram.new("testfile.txt").result).to eql([["asf","afs"],["ggff","FFgg"]])
       end
     end
 
     context " when other hash is given" do 
-    ha={5 => ["basfa","sabaf","dff"], 2=>["ba","Ab","da"]}
+    ha=["basfa","sabaf","dff"]
       it "returns different anagrams" do
-        expect(Anagram.new("fileName").getAnagrams(ha)).to eql([["basfa", "sabaf"], ["ba","Ab"]])
+        expect(Anagram.new(ha).result).to eql([["basfa", "sabaf"]])
       end
     end
 
-  end
+  
 end
 
