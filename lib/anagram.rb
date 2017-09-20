@@ -14,11 +14,9 @@ class Anagram
   def getAnagrams(input)
     @result=[]
     if input.is_a?(Hash)
-      input.each do |key,value|
-        res=value.group_by{|elem| elem.downcase.chars.sort}.delete_if{|key,value| value.length==1}.values
-        res.each do |val|
+      res=input.delete_if{|key,value| value.length==1}
+      res.each do |key,val|
           @result<<val
-        end
       end
     else
       res=input.group_by{|elem| elem.downcase.chars.sort}.delete_if{|key,value| value.length==1}.values
@@ -27,12 +25,17 @@ class Anagram
   end
   
   def getHash(filename)
-    h={1 => []}
-    File.open(filename,"r:iso-8859-1:utf-8").readlines.map(&:strip).each do |line|
-      if h.has_key? line.length
-        h[line.length].push(line)
+    if File.exist?(filename)
+      path=filename
+    else
+      path="./spec/support/"+filename
+    end
+    h={}
+    File.open(path,"r:iso-8859-1:utf-8").readlines.map(&:strip).each do |line|
+      if h.has_key? line.downcase.chars.sort
+        h[line.downcase.chars.sort].push(line)
       else 
-        h[line.length]=[line]
+        h[line.downcase.chars.sort]=[line]
       end
     end
     h
